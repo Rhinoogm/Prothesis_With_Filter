@@ -95,7 +95,7 @@ extern ToHost toSimulink;
 /* ADC */
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /* Load cell initial setting */
-real_T ADC_load_zero = 1960;//2145.7;	// load cell (x1)
+real_T ADC_load_zero = 1960;//2145.7;	// load cell (x1) // XX
 
 /* FSR initial setting */
 real_T ADC_Heel_zero 	= 1972;   //2009;
@@ -110,12 +110,9 @@ real_T ADC_Toe_OFF = 30;		//43.0
 /////////////////////////////////////////////////
 __IO uint16_t ADC_array_1;
 __IO uint16_t ADC_array_2;
-uint32_t ADC_channel[3] = {0, ADC_ch1, ADC_ch2};
+uint32_t ADC_channel[3] = {0, ADC_ch1, ADC_ch2}; // XX
 
 /////////////////////////////////////////////////
-real_T CURRENT_val = 0;
-real_T LOAD_val = 0;
-real_T LOAD_compare;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -130,15 +127,6 @@ uint8_t null[1]={0, };
 
 /* motor encoder : pin interrupt */
 /////////////////////////////////////////////////
-uint16_t count_1;
-uint16_t count_2;
-uint16_t count_3;
-uint16_t count_4;
-
-uint16_t dir;
-uint16_t dir_2;
-uint16_t dir_3;
-uint16_t dir_4;
 
 /* Absolute Encoder */
 real_T angle_zero = 349;  	//	730;
@@ -147,7 +135,6 @@ real_T angle_ninety = 1585; // 	1166;             /// 0.0947
 real_T angle_org =0 ;
 real_T angle =0;
 real_T angle_rad=0;
-real_T angle_LPF = 0;
 
 /* Motor Encoder */
 real_T m_enc=0;
@@ -170,24 +157,14 @@ real_T thetaS_dotdot = 0;
 real_T xs = 0;
 real_T Ks = 194489;
 real_T F_spring = 0;
-real_T F_spring_lpf = 0;
-real_T F_spring_lpf1 = 0;
-real_T F_spring_lpf2 = 0;
 real_T T_motor = 0; // motor torque
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-/* actuator */
-real_T xl = 0;
-real_T xl_compare = 0;
-real_T xl0 = 0 ;
-real_T xl_lpf = 0;
 /* time variable */
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 uint32_t start_time;
 real_T dt    = 0.004;
-real_T time1 = 0;
-real_T time2 = 0;
 real_T time=0;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -205,7 +182,6 @@ real_T Spring_dot_lpf = 0;
 real_T Spring_dotdot_lpf = 0;
 
 /* LPF 결과 값 : force, heel, toe의 original */
-real_T Force_org;
 real_T Heel_org;
 real_T Toe_org;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -215,9 +191,7 @@ real_T Toe_org;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 real_T FF_INPUT = 0;
 real_T CURRENT_INPUT = 0;
-real_T CURRENT_INPUT1 = 0;
 real_T DUTY_INPUT = 0;
-real_T pwm_start = 99; // pwm trigger
 real_T force_input = 0;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -228,15 +202,14 @@ real_T force_input = 0;
 double Jm = 7e-6;
 double Bm = 1.8e-4;
 double delta = 0;
-double delta_test = 0;
 
 double sig[4] = {1000,0,0,1000};
-
+//
 double R[4] = {0,0,0,0};
 double K[4] = {0,0,0,0};
 double u[2] = {0, 0};
 double sig_hat[4] = {0,0,0,0};
-
+//
 double theta_hat = 0;
 double theta_dot_hat = 0;
 
@@ -263,18 +236,14 @@ double M44_I[4] = {0,0,0,0};
 real_T thetam_rad_kalman = 0;
 real_T thetam_rad_speed_kalman = 0;
 
-//double I[2][2] = {{1, 0}, {0, 1}};
 double I[4] = {1.0, 0.0, 0.0, 1.0};
 
 //Jacobian
 double G[4] = {1.0, 0.0, 0.004, 1.0-((1.8e-4)/(7e-6))*0.004};
 double V[4] = {0.0, 0.004/(7e-6), 0.0, 0.004/(7e-6)/9425};
 
-//G[0] = {1.0, 0.0, dt, 1.0 - (Bm/Jm)*dt};
-//V = {0.0, dt/Jm, 0.0, dt/Jm/Nm};
 
 //measurement
-//double H[2][2] = {{1, 0}, {0, 1}};
 double H[4] = {1.0, 0.0, 0.0, 1.0};
 
 //측정오차에 대한 공분산
@@ -282,8 +251,6 @@ double Q[4] = {1., 0.0, 0.0, 10.};
 
 //control value에 대한 uncertainty를 나타냄
 double sig_con[4] = {10.0, 0.0, 0.0, 1000.0};
-
-//double sig_hat[2][2] = {{0, 0}, {0, 0}};
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -302,9 +269,6 @@ double S4[4] = {0,0,0,0};
 double S44[4] = {0,0,0,0};
 double S5[4] = {0,0,0,0};
 double S55[4] = {0,0,0,0};
-double S6[4] = {0,0,0,0};
-double S66[4] = {0,0,0,0};
-
 
 double G_T_S[4] = {0,0,0,0};
 double V_T_S[2] = {0,0};
@@ -326,36 +290,24 @@ double theta_dot_hat_S = 0;
 real_T thetaS_rad_kalman = 0;
 real_T thetaS_rad_speed_kalman = 0;
 
-//real_T F_ref = 0;
-
 real_T DOB_input_1 = 0;
 real_T DOB_input_2 = 0;
 
 //Jacobian
-//double G[2][2] = {{1, 0.004}, {0, 1-(1.8*(10^(-4))/7*(10^(-6)))*0.004}};
-//double V[2][2] = {{0, 0}, {0.004/7*(10^(-6)), 0.004/7*(10^(-6))/9425}};
 double G_S[4] = {1.0, 0.004 * (-194489/1.6), 0.004, 1.0-(250/1.6)*0.004};
 double V_S[2] = {0.0, (1.0/1.6)*0.004};
 
-//G[0] = {1.0, 0.0, dt, 1.0 - (Bm/Jm)*dt};
-//V = {0.0, dt/Jm, 0.0, dt/Jm/Nm};
 
 //measurement
-//double H[2][2] = {{1, 0}, {0, 1}};
 double H_S[4] = {1.0, 0.0, 0.0, 1.0};
 
 //측정오차에 대한 공분산
-//double Q[2][2] = {{0.0001,0}, {0,0.1}};
-//double Q[4] = {0.0001, 0.0, 0.0, 0.1};
 double Q_S[4] = {0.001, 0.0, 0.0, 0.1};
 
 //control value에 대한 uncertainty를 나타냄
-//double sig_con[2][2] = {{10, 0}, {0, 1000}};
-//double sig_con[4] = {10.0, 0.0, 0.0, 1000.0};
 double sig_con_S[1] = {1000.0};
 
 double sig_S[4] = {100,0,0,100};
-//double sig_hat[2][2] = {{0, 0}, {0, 0}};
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -403,7 +355,7 @@ float HeelState=0;
 float ToeState=0;
 /////////////////////////////////////////////////
 int stateNum=4;
-char state='N';
+//char state='N';
 /////////////////////////////////////////////////
 real_T time_ex;
 real_T thetak_old;
@@ -450,18 +402,9 @@ real_T L1 		= 0.3033562; // m
 real_T alpha_0	= 0.4789;	// radian
 real_T alpha	= 0;		// radian
 
-real_T T_k = 0; //knee torque
-real_T T_k_lpf = 0; //knee torque
-
 real_T theta_k = 0;
-real_T theta_k_rad = 0;
-real_T theta_compare = 0;
 
 /////////////////////////////////////////////////
-real_T force=0;
-real_T forceSum=0;
-real_T forceAvr=0;
-real_T forceOrg =0;
 
 real_T torque=0;
 real_T torque_kalman = 0;
@@ -493,7 +436,7 @@ real_T thetam_ref_rad=0;
 
 /* test1~5 : 사용 안 함 ///// sig_1~3 : 사용 중 */
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-float teat_block[4] = {10^(-4),10e-04,3,4};
+//float teat_block[4] = {10^(-4),10e-04,3,4};
 
 float test1 = 0;
 float test2 = 0;
@@ -507,11 +450,6 @@ real_T sig_3 = 0;
 
 int cnt = 0;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-double AA[4] = {11, 21, 12, 22};
-double BB[4] = {1, 3, 2, 4};
-double CC[4] = {0, 0, 0, 0};
-
-
 void Process_Init();
 void Initialize();
 void Process_start();

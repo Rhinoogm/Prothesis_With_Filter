@@ -68,32 +68,23 @@ c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.20
 Allocating common symbols
 Common symbol       size              file
 
-count_2             0x2               Src/main.o
-dir_2               0x2               Src/main.o
 toSimulink          0x26c             Src/ecl_library.o
 Heel_org            0x4               Src/main.o
 hadc2               0x54              Src/main.o
 ADC_array_2         0x2               Src/main.o
-count_1             0x2               Src/main.o
 uwTick              0x4               Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
-dir_3               0x2               Src/main.o
 pFlash              0x20              Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_flash.o
 htim3               0x40              Src/main.o
 r                   0x8               Src/main.o
-count_4             0x2               Src/main.o
 thetak_lpf          0x4               Src/main.o
 ADC_array_1         0x2               Src/main.o
 hadc1               0x54              Src/main.o
-dir_4               0x2               Src/main.o
 start_time          0x4               Src/main.o
-Force_org           0x4               Src/main.o
-LOAD_compare        0x4               Src/main.o
 hdma_adc1           0x44              Src/main.o
 thetak_0            0x4               Src/main.o
 Toe_org             0x4               Src/main.o
 Toe                 0x4               Src/main.o
 htim1               0x40              Src/main.o
-dir                 0x2               Src/main.o
 time_ex             0x4               Src/main.o
 theta_k_dot         0x8               Src/main.o
 hspi1               0x64              Src/main.o
@@ -104,7 +95,6 @@ thetak_old          0x4               Src/main.o
 hdma_adc2           0x44              Src/main.o
 thetak_lpf_rad      0x4               Src/main.o
 Heel                0x4               Src/main.o
-count_3             0x2               Src/main.o
 x_diff              0x4               Src/main.o
 
 Discarded input sections
@@ -5341,14 +5331,14 @@ LOAD c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17
                 [!provide]                PROVIDE (__fini_array_end = .)
                 0x08008418                _sidata = LOADADDR (.data)
 
-.data           0x20000000      0x7a8 load address 0x08008418
+.data           0x20000000      0x74c load address 0x08008418
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                _sdata = .
  *(.data)
  .data          0x20000000        0x8 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
                 0x20000000                uwTickFreq
                 0x20000004                uwTickPrio
- .data          0x20000008      0x734 Src/main.o
+ .data          0x20000008      0x6d8 Src/main.o
                 0x20000008                pos_Control
                 0x20000050                Motor_Enc
                 0x20000090                dt
@@ -5409,36 +5399,31 @@ LOAD c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17
                 0x20000698                B2
                 0x2000069c                b3
                 0x200006a0                Pos_LPF
-                0x200006c8                BB
-                0x200006e8                AA
-                0x20000708                teat_block
-                0x20000718                angle_eq3
-                0x2000071c                k3
-                0x20000720                state
-                0x20000724                pwm_start
-                0x20000728                angle_ninety
-                0x2000072c                ADC_channel
-                0x20000738                ADC_load_zero
- .data          0x2000073c        0x4 Src/system_stm32f3xx.o
-                0x2000073c                SystemCoreClock
+                0x200006c4                angle_eq3
+                0x200006c8                k3
+                0x200006cc                angle_ninety
+                0x200006d0                ADC_channel
+                0x200006dc                ADC_load_zero
+ .data          0x200006e0        0x4 Src/system_stm32f3xx.o
+                0x200006e0                SystemCoreClock
  *(.data*)
  .data.__fdlib_version
-                0x20000740        0x1 c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-s_lib_ver.o)
-                0x20000740                __fdlib_version
- *fill*         0x20000741        0x3 
+                0x200006e4        0x1 c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libm.a(lib_a-s_lib_ver.o)
+                0x200006e4                __fdlib_version
+ *fill*         0x200006e5        0x3 
  .data._impure_ptr
-                0x20000744        0x4 c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libc_nano.a(lib_a-impure.o)
-                0x20000744                _impure_ptr
+                0x200006e8        0x4 c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libc_nano.a(lib_a-impure.o)
+                0x200006e8                _impure_ptr
  .data.impure_data
-                0x20000748       0x60 c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libc_nano.a(lib_a-impure.o)
-                0x200007a8                . = ALIGN (0x4)
-                0x200007a8                _edata = .
-                0x08008bc0                _siccmram = LOADADDR (.ccmram)
+                0x200006ec       0x60 c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libc_nano.a(lib_a-impure.o)
+                0x2000074c                . = ALIGN (0x4)
+                0x2000074c                _edata = .
+                0x08008b64                _siccmram = LOADADDR (.ccmram)
 
-.igot.plt       0x200007a8        0x0 load address 0x08008bc0
- .igot.plt      0x200007a8        0x0 c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+.igot.plt       0x2000074c        0x0 load address 0x08008b64
+ .igot.plt      0x2000074c        0x0 c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
 
-.ccmram         0x10000000        0x0 load address 0x08008bc0
+.ccmram         0x10000000        0x0 load address 0x08008b64
                 0x10000000                . = ALIGN (0x4)
                 0x10000000                _sccmram = .
  *(.ccmram)
@@ -5447,215 +5432,182 @@ LOAD c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17
                 0x10000000                _eccmram = .
                 0x10000000                . = ALIGN (0x4)
 
-.bss            0x200007a8      0xd80
-                0x200007a8                _sbss = .
-                0x200007a8                __bss_start__ = _sbss
+.bss            0x20000750      0xca4
+                0x20000750                _sbss = .
+                0x20000750                __bss_start__ = _sbss
  *(.bss)
- .bss           0x200007a8       0x1c c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
- *fill*         0x200007c4        0x4 
- .bss           0x200007c8      0x7b4 Src/main.o
-                0x200007c8                DUTY_INPUT
-                0x200007cc                null
-                0x200007d0                angle_org
-                0x200007d4                angle
-                0x200007d8                CURRENT_INPUT
-                0x200007dc                force_input
-                0x200007e0                DOB_input_1
-                0x200007e4                DOB_input_2
-                0x200007e8                FF_INPUT
-                0x200007ec                m_enc
-                0x200007f0                thetam_rad
-                0x200007f4                thetam
-                0x200007f8                thetam_dot
-                0x200007fc                thetam_dotdot
-                0x20000800                S_enc
-                0x20000804                thetaS_rad
-                0x20000808                thetaS
-                0x2000080c                thetaS_dot
-                0x20000810                thetaS_dotdot
-                0x20000814                xs
-                0x20000818                test2
-                0x2000081c                F_spring
-                0x20000820                T_motor
-                0x20000824                Motor_dot_lpf
-                0x20000828                Spring_dot_lpf
-                0x20000830                theta_dot_hat
-                0x20000838                theta_hat
-                0x20000840                G_T
-                0x20000860                V_T
-                0x20000880                H_T
-                0x200008a0                M1
-                0x200008c0                M11
-                0x200008e0                M2
-                0x20000900                M22
-                0x20000920                R
-                0x20000940                sig_hat
-                0x20000960                M4
-                0x20000980                M3
-                0x200009a0                M33
-                0x200009c0                M44
-                0x200009e0                delta
-                0x200009e8                M44_I
-                0x20000a08                K
-                0x20000a28                u
-                0x20000a38                M5
-                0x20000a58                M55
-                0x20000a78                thetam_rad_kalman
-                0x20000a7c                thetam_rad_speed_kalman
-                0x20000a80                test3
-                0x20000a84                test4
-                0x20000a88                G_T_S
-                0x20000aa8                V_T_S
-                0x20000ab8                H_T_S
-                0x20000ad8                S1
-                0x20000af8                S11
-                0x20000b18                S2
-                0x20000b28                S22
-                0x20000b48                theta_dot_hat_S
-                0x20000b50                theta_hat_S
-                0x20000b58                sig_hat_S
-                0x20000b78                S4
-                0x20000b98                S3
-                0x20000bb8                S33
-                0x20000bd8                S44
-                0x20000bf8                delta_S
-                0x20000c00                S44_I
-                0x20000c20                K_S
-                0x20000c40                u_S
-                0x20000c50                S5
-                0x20000c70                S55
-                0x20000c90                thetaS_rad_kalman
-                0x20000c94                thetaS_rad_speed_kalman
-                0x20000c98                Ja
-                0x20000ca0                h
-                0x20000cb8                Ba
-                0x20000cc0                m_estimated
-                0x20000cc8                x_measurement
-                0x20000ce0                theta_k
-                0x20000ce8                y_temp
-                0x20000cf0                e_temp
-                0x20000cf8                x_measurement_T
-                0x20000d10                K_num
-                0x20000d28                K_den
-                0x20000d30                K_rls
-                0x20000d48                P_1
-                0x20000d90                P_2
-                0x20000dd8                Gamma
-                0x20000de0                start_flag
-                0x20000de4                initial_flag
-                0x20000de8                angle_rad
-                0x20000dec                alpha
-                0x20000df0                x0
-                0x20000df4                x
-                0x20000df8                thetak_rad
-                0x20000dfc                thetak
-                0x20000e00                thetak_velocity
-                0x20000e04                thetak_past
-                0x20000e08                flag_start
-                0x20000e0c                torque_kalman
-                0x20000e10                torque
-                0x20000e14                HeelState
-                0x20000e18                ToeState
-                0x20000e1c                time
-                0x20000e20                thetak_ref
-                0x20000e24                thetak_velocity_past
-                0x20000e28                thetak_ref_rad
-                0x20000e2c                x_ref
-                0x20000e30                thetam_ref
-                0x20000e34                thetam_ref_rad
-                0x20000e38                test5
-                0x20000e40                CC
-                0x20000e60                cnt
-                0x20000e64                sig_3
-                0x20000e68                sig_2
-                0x20000e6c                sig_1
-                0x20000e70                test1
-                0x20000e74                forceOrg
-                0x20000e78                forceAvr
-                0x20000e7c                forceSum
-                0x20000e80                force
-                0x20000e84                theta_compare
-                0x20000e88                theta_k_rad
-                0x20000e8c                T_k_lpf
-                0x20000e90                T_k
-                0x20000e98                S66
-                0x20000eb8                S6
-                0x20000ed8                R_S
-                0x20000ef8                M66
-                0x20000f18                M6
-                0x20000f38                delta_test
-                0x20000f40                CURRENT_INPUT1
-                0x20000f44                Spring_dotdot_lpf
-                0x20000f48                Motor_dotdot_lpf
-                0x20000f4c                time2
-                0x20000f50                time1
-                0x20000f54                xl_lpf
-                0x20000f58                xl0
-                0x20000f5c                xl_compare
-                0x20000f60                xl
-                0x20000f64                F_spring_lpf2
-                0x20000f68                F_spring_lpf1
-                0x20000f6c                F_spring_lpf
-                0x20000f70                angle_LPF
-                0x20000f74                LOAD_val
-                0x20000f78                CURRENT_val
- .bss           0x20000f7c        0x4 Src/stm32f3xx_hal_msp.o
+ .bss           0x20000750       0x1c c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+ *fill*         0x2000076c        0x4 
+ .bss           0x20000770      0x6f0 Src/main.o
+                0x20000770                DUTY_INPUT
+                0x20000774                null
+                0x20000778                angle_org
+                0x2000077c                angle
+                0x20000780                CURRENT_INPUT
+                0x20000784                force_input
+                0x20000788                DOB_input_1
+                0x2000078c                DOB_input_2
+                0x20000790                FF_INPUT
+                0x20000794                m_enc
+                0x20000798                thetam_rad
+                0x2000079c                thetam
+                0x200007a0                thetam_dot
+                0x200007a4                thetam_dotdot
+                0x200007a8                S_enc
+                0x200007ac                thetaS_rad
+                0x200007b0                thetaS
+                0x200007b4                thetaS_dot
+                0x200007b8                thetaS_dotdot
+                0x200007bc                xs
+                0x200007c0                test2
+                0x200007c4                F_spring
+                0x200007c8                T_motor
+                0x200007cc                Motor_dot_lpf
+                0x200007d0                Spring_dot_lpf
+                0x200007d8                theta_dot_hat
+                0x200007e0                theta_hat
+                0x200007e8                G_T
+                0x20000808                V_T
+                0x20000828                H_T
+                0x20000848                M1
+                0x20000868                M11
+                0x20000888                M2
+                0x200008a8                M22
+                0x200008c8                R
+                0x200008e8                sig_hat
+                0x20000908                M4
+                0x20000928                M3
+                0x20000948                M33
+                0x20000968                M44
+                0x20000988                delta
+                0x20000990                M44_I
+                0x200009b0                K
+                0x200009d0                u
+                0x200009e0                M5
+                0x20000a00                M55
+                0x20000a20                thetam_rad_kalman
+                0x20000a24                thetam_rad_speed_kalman
+                0x20000a28                test3
+                0x20000a2c                test4
+                0x20000a30                G_T_S
+                0x20000a50                V_T_S
+                0x20000a60                H_T_S
+                0x20000a80                S1
+                0x20000aa0                S11
+                0x20000ac0                S2
+                0x20000ad0                S22
+                0x20000af0                theta_dot_hat_S
+                0x20000af8                theta_hat_S
+                0x20000b00                sig_hat_S
+                0x20000b20                S4
+                0x20000b40                S3
+                0x20000b60                S33
+                0x20000b80                S44
+                0x20000ba0                delta_S
+                0x20000ba8                S44_I
+                0x20000bc8                K_S
+                0x20000be8                u_S
+                0x20000bf8                S5
+                0x20000c18                S55
+                0x20000c38                thetaS_rad_kalman
+                0x20000c3c                thetaS_rad_speed_kalman
+                0x20000c40                Ja
+                0x20000c48                h
+                0x20000c60                Ba
+                0x20000c68                m_estimated
+                0x20000c70                x_measurement
+                0x20000c88                theta_k
+                0x20000c90                y_temp
+                0x20000c98                e_temp
+                0x20000ca0                x_measurement_T
+                0x20000cb8                K_num
+                0x20000cd0                K_den
+                0x20000cd8                K_rls
+                0x20000cf0                P_1
+                0x20000d38                P_2
+                0x20000d80                Gamma
+                0x20000d88                start_flag
+                0x20000d8c                initial_flag
+                0x20000d90                angle_rad
+                0x20000d94                alpha
+                0x20000d98                x0
+                0x20000d9c                x
+                0x20000da0                thetak_rad
+                0x20000da4                thetak
+                0x20000da8                thetak_velocity
+                0x20000dac                thetak_past
+                0x20000db0                flag_start
+                0x20000db4                torque_kalman
+                0x20000db8                torque
+                0x20000dbc                HeelState
+                0x20000dc0                ToeState
+                0x20000dc4                time
+                0x20000dc8                thetak_ref
+                0x20000dcc                thetak_velocity_past
+                0x20000dd0                thetak_ref_rad
+                0x20000dd4                x_ref
+                0x20000dd8                thetam_ref
+                0x20000ddc                thetam_ref_rad
+                0x20000de0                test5
+                0x20000de4                cnt
+                0x20000de8                sig_3
+                0x20000dec                sig_2
+                0x20000df0                sig_1
+                0x20000df4                test1
+                0x20000df8                R_S
+                0x20000e18                M66
+                0x20000e38                M6
+                0x20000e58                Spring_dotdot_lpf
+                0x20000e5c                Motor_dotdot_lpf
+ .bss           0x20000e60        0x4 Src/stm32f3xx_hal_msp.o
  *(.bss*)
  *(COMMON)
- COMMON         0x20000f80        0x4 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
-                0x20000f80                uwTick
- COMMON         0x20000f84      0x26c Src/ecl_library.o
-                0x20000f84                toSimulink
- COMMON         0x200011f0      0x338 Src/main.o
-                0x200011f0                count_2
-                0x200011f2                dir_2
-                0x200011f4                Heel_org
-                0x200011f8                hadc2
-                0x2000124c                ADC_array_2
-                0x2000124e                count_1
-                0x20001250                dir_3
-                0x20001254                htim3
-                0x20001298                r
-                0x200012a0                count_4
-                0x200012a4                thetak_lpf
-                0x200012a8                ADC_array_1
-                0x200012ac                hadc1
-                0x20001300                dir_4
-                0x20001304                start_time
-                0x20001308                Force_org
-                0x2000130c                LOAD_compare
-                0x20001310                hdma_adc1
-                0x20001354                thetak_0
-                0x20001358                Toe_org
-                0x2000135c                Toe
-                0x20001360                htim1
-                0x200013a0                dir
-                0x200013a4                time_ex
-                0x200013a8                theta_k_dot
-                0x200013b0                hspi1
-                0x20001414                htim2
-                0x20001458                theta_k_dotdot
-                0x20001460                huart2
-                0x200014d0                thetak_old
-                0x200014d4                hdma_adc2
-                0x20001518                thetak_lpf_rad
-                0x2000151c                Heel
-                0x20001520                count_3
-                0x20001524                x_diff
-                0x20001528                . = ALIGN (0x4)
-                0x20001528                _ebss = .
-                0x20001528                __bss_end__ = _ebss
+ COMMON         0x20000e64        0x4 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
+                0x20000e64                uwTick
+ COMMON         0x20000e68      0x26c Src/ecl_library.o
+                0x20000e68                toSimulink
+ *fill*         0x200010d4        0x4 
+ COMMON         0x200010d8      0x31c Src/main.o
+                0x200010d8                Heel_org
+                0x200010dc                hadc2
+                0x20001130                ADC_array_2
+                0x20001134                htim3
+                0x20001178                r
+                0x20001180                thetak_lpf
+                0x20001184                ADC_array_1
+                0x20001188                hadc1
+                0x200011dc                start_time
+                0x200011e0                hdma_adc1
+                0x20001224                thetak_0
+                0x20001228                Toe_org
+                0x2000122c                Toe
+                0x20001230                htim1
+                0x20001270                time_ex
+                0x20001278                theta_k_dot
+                0x20001280                hspi1
+                0x200012e4                htim2
+                0x20001328                theta_k_dotdot
+                0x20001330                huart2
+                0x200013a0                thetak_old
+                0x200013a4                hdma_adc2
+                0x200013e8                thetak_lpf_rad
+                0x200013ec                Heel
+                0x200013f0                x_diff
+                0x200013f4                . = ALIGN (0x4)
+                0x200013f4                _ebss = .
+                0x200013f4                __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x20001528      0x600
-                0x20001528                . = ALIGN (0x8)
-                0x20001528                PROVIDE (end = .)
+                0x200013f4      0x604
+                0x200013f8                . = ALIGN (0x8)
+ *fill*         0x200013f4        0x4 
+                0x200013f8                PROVIDE (end = .)
                 [!provide]                PROVIDE (_end = .)
-                0x20001728                . = (. + _Min_Heap_Size)
- *fill*         0x20001528      0x200 
-                0x20001b28                . = (. + _Min_Stack_Size)
- *fill*         0x20001728      0x400 
-                0x20001b28                . = ALIGN (0x8)
+                0x200015f8                . = (. + _Min_Heap_Size)
+ *fill*         0x200013f8      0x200 
+                0x200019f8                . = (. + _Min_Stack_Size)
+ *fill*         0x200015f8      0x400 
+                0x200019f8                . = ALIGN (0x8)
 
 /DISCARD/
  libc.a(*)
@@ -5771,7 +5723,7 @@ LOAD c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17
                 0x00000a20       0x22 c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
 OUTPUT(prosthesis_new_connect.elf elf32-littlearm)
 
-.debug_info     0x00000000    0x1e81d
+.debug_info     0x00000000    0x1e54f
  .debug_info    0x00000000     0x103e Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
  .debug_info    0x0000103e     0x237c Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
  .debug_info    0x000033ba     0x14cd Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_cortex.o
@@ -5784,12 +5736,12 @@ OUTPUT(prosthesis_new_connect.elf elf32-littlearm)
  .debug_info    0x0000fd02     0x1f4f Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_tim_ex.o
  .debug_info    0x00011c51     0x22ef Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.o
  .debug_info    0x00013f40     0x16c9 Src/ecl_library.o
- .debug_info    0x00015609     0x4c0a Src/main.o
- .debug_info    0x0001a213     0x1ec0 Src/stm32f3xx_hal_msp.o
- .debug_info    0x0001c0d3      0xcae Src/stm32f3xx_it.o
- .debug_info    0x0001cd81      0xc82 Src/system_stm32f3xx.o
- .debug_info    0x0001da03      0xdf8 Src/vector_matrix.o
- .debug_info    0x0001e7fb       0x22 startup/startup_stm32f303x8.o
+ .debug_info    0x00015609     0x493c Src/main.o
+ .debug_info    0x00019f45     0x1ec0 Src/stm32f3xx_hal_msp.o
+ .debug_info    0x0001be05      0xcae Src/stm32f3xx_it.o
+ .debug_info    0x0001cab3      0xc82 Src/system_stm32f3xx.o
+ .debug_info    0x0001d735      0xdf8 Src/vector_matrix.o
+ .debug_info    0x0001e52d       0x22 startup/startup_stm32f303x8.o
 
 .debug_abbrev   0x00000000     0x392d
  .debug_abbrev  0x00000000      0x334 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
@@ -5998,7 +5950,7 @@ OUTPUT(prosthesis_new_connect.elf elf32-littlearm)
  .debug_line    0x0000e50e      0x669 Src/vector_matrix.o
  .debug_line    0x0000eb77       0x7f startup/startup_stm32f303x8.o
 
-.debug_str      0x00000000    0x91c06
+.debug_str      0x00000000    0x91ae5
  .debug_str     0x00000000    0x8c2b6 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
                               0x8c5be (size before relaxing)
  .debug_str     0x0008c2b6      0xced Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_adc_ex.o
@@ -6023,17 +5975,17 @@ OUTPUT(prosthesis_new_connect.elf elf32-littlearm)
                               0x8cb44 (size before relaxing)
  .debug_str     0x0009024a      0x525 Src/ecl_library.o
                               0x8c815 (size before relaxing)
- .debug_str     0x0009076f     0x1297 Src/main.o
-                              0x8ea2c (size before relaxing)
- .debug_str     0x00091a06       0x4b Src/stm32f3xx_hal_msp.o
+ .debug_str     0x0009076f     0x1176 Src/main.o
+                              0x8e905 (size before relaxing)
+ .debug_str     0x000918e5       0x4b Src/stm32f3xx_hal_msp.o
                               0x8cafb (size before relaxing)
- .debug_str     0x00091a51       0xa7 Src/stm32f3xx_it.o
+ .debug_str     0x00091930       0xa7 Src/stm32f3xx_it.o
                               0x8c137 (size before relaxing)
- .debug_str     0x00091af8       0x64 Src/system_stm32f3xx.o
+ .debug_str     0x000919d7       0x64 Src/system_stm32f3xx.o
                               0x8bf47 (size before relaxing)
- .debug_str     0x00091b5c       0x7b Src/vector_matrix.o
+ .debug_str     0x00091a3b       0x7b Src/vector_matrix.o
                                0x7dab (size before relaxing)
- .debug_str     0x00091bd7       0x2f startup/startup_stm32f303x8.o
+ .debug_str     0x00091ab6       0x2f startup/startup_stm32f303x8.o
                                  0x77 (size before relaxing)
 
 .comment        0x00000000       0x7f
